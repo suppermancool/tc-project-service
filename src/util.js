@@ -206,7 +206,7 @@ _.assignIn(util, {
         }
       )
       .then(res => {
-        console.log('successfully got system token ' + token)
+        console.log('successfully got system token ' + res)
         return res.data.result.content.token
       })
       .catch(err => {
