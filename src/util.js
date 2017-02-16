@@ -197,6 +197,7 @@ _.assignIn(util, {
     getSystemUserToken: (logger, id='system') => {
       const httpClient = util.getHttpClient({id: id, log: logger})
       const url = `${config.get('identityServiceEndpoint')}authorizations`
+      console.log('System User url: ' + url)
       const formData = `clientId=${config.get('systemUserClientId')}&secret=${encodeURIComponent(config.get('systemUserClientSecret'))}`
       return httpClient.post(url, formData,
         {
@@ -205,6 +206,7 @@ _.assignIn(util, {
         }
       )
       .then(res => {
+        console.log('successfully got system token ' + token)
         return res.data.result.content.token
       })
     },
@@ -224,6 +226,7 @@ _.assignIn(util, {
       httpClient.defaults.headers.common['Accept'] = 'application/json'
       httpClient.defaults.headers.common['Content-Type'] = 'application/json'
       httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + jwtToken
+      console.log('Calling topcoder user: ' + config.userServiceUrl + '/' + userId)
       return httpClient.get(config.userServiceUrl + '/' + userId).then((response) => {
         if (response.data && response.data.result
           && response.data.result.status == 200 && response.data.result.content) {
