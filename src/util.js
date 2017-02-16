@@ -209,6 +209,9 @@ _.assignIn(util, {
         console.log('successfully got system token ' + token)
         return res.data.result.content.token
       })
+      .catch(err => {
+        console.log(err)
+      })
     },
 
     /**
