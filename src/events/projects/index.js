@@ -50,7 +50,6 @@ const projectCreatedHandler = (logger, msg, channel) => {
   let project = JSON.parse(msg.content)
   return util.getSystemUserToken(logger)
     .then(token => {
-      console.log('Got token => ' + token)
       const req = {
         id: 1,
         log: logger,
