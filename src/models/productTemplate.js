@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     details: { type: DataTypes.STRING(255), allowNull: false },
     aliases: { type: DataTypes.JSON, allowNull: false },
     template: { type: DataTypes.JSON, allowNull: false },
+    category: { type: DataTypes.STRING, allowNull: false },
     deletedAt: DataTypes.DATE,
     disabled: { type: DataTypes.BOOLEAN, defaultValue: false },
     hidden: { type: DataTypes.BOOLEAN, defaultValue: false },

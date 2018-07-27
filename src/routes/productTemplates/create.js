@@ -19,6 +19,7 @@ const schema = {
       icon: Joi.string().max(255).required(),
       brief: Joi.string().max(45).required(),
       details: Joi.string().max(255).required(),
+      category: Joi.string().max(45).required(),
       aliases: Joi.array().required(),
       template: Joi.object().required(),
       disabled: Joi.boolean().optional(),
@@ -33,21 +34,53 @@ const schema = {
   },
 };
 
+/**
+ * Validates the product category type being one from the allowed ones.
+ *
+ * @param {String} key of the product category to be used
+ * @returns {Promise} promise which resolves to a product category if it is valid, rejects otherwise with 422 error
+ */
+function validateProductCategory(category) {
+  return models.ProductCategory.findOne({ where: { key: category } })
+  .then((productCategory) => {
+    if (!productCategory) {
+      // Not found
+      const apiErr = new Error(`Product category not found for key ${category}`);
+      apiErr.status = 422;
+      return Promise.reject(apiErr);
+    }
+
+    return Promise.resolve(productCategory);
+  });
+}
+
 module.exports = [
   validate(schema),
   permissions('productTemplate.create'),
   (req, res, next) => {
-    const entity = _.assign(req.body.param, {
-      createdBy: req.authUser.userId,
-      updatedBy: req.authUser.userId,
-    });
+    const product = req.body.param;
 
-    return models.ProductTemplate.create(entity)
-      .then((createdEntity) => {
-        // Omit deletedAt, deletedBy
-        res.status(201).json(util.wrapResponse(
-          req.id, _.omit(createdEntity.toJSON(), 'deletedAt', 'deletedBy'), 1, 201));
+    models.sequelize.transaction(() => {
+      req.log.debug('Create Product - Starting transaction');
+      // Validate the product category
+      return validateProductCategory(product.category)
+      // Create the product
+      .then((productCategory) => {
+        req.log.debug(`Product category ${productCategory.key} validated successfully`);
+
+        const entity = _.assign(product, {
+          createdBy: req.authUser.userId,
+          updatedBy: req.authUser.userId,
+        });
+        return models.ProductTemplate.create(entity)
+          .then((createdEntity) => {
+            // Omit deletedAt, deletedBy
+            res.status(201).json(util.wrapResponse(
+              req.id, _.omit(createdEntity.toJSON(), 'deletedAt', 'deletedBy'), 1, 201));
+          })
+          .catch(next);
       })
       .catch(next);
+    });
   },
 ];

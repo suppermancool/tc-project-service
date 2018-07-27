@@ -7,9 +7,27 @@ import request from 'supertest';
 import server from '../../app';
 import testUtil from '../../tests/util';
 
+import models from '../../models';
+
 const should = chai.should();
 
 describe('CREATE product template', () => {
+  beforeEach(() => testUtil.clearDb()
+    .then(() => models.ProductCategory.create({
+      key: 'category1',
+      displayName: 'displayName 1',
+      icon: 'http://example.com/icon1.ico',
+      question: 'question 1',
+      info: 'info 1',
+      aliases: ['key-1', 'key_1'],
+      disabled: false,
+      hidden: false,
+      createdBy: 1,
+      updatedBy: 1,
+    })).then(() => Promise.resolve()),
+  );
+  after(testUtil.clearDb);
+
   describe('POST /productTemplates', () => {
     const body = {
       param: {
@@ -19,6 +37,7 @@ describe('CREATE product template', () => {
         brief: 'brief 1',
         details: 'details 1',
         aliases: ['product key 1', 'product_key_1'],
+        category: 'category1',
         disabled: true,
         hidden: true,
         template: {

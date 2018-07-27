@@ -1,15 +1,16 @@
 {
 	"info": {
-		"_postman_id": "440ee43d-66ca-4c9b-858d-22db97ea4cea",
+		"_postman_id": "5ebf47eb-e024-4269-b19b-6e49a698d342",
 		"name": "tc-project-service",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
+			"_postman_id": "52c930df-b062-4f55-9622-6ff848203302",
 			"name": "Project Attachments",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "36d51b86-d113-406f-993b-c49075502664",
 					"name": "Upload attachment",
 					"request": {
 						"method": "POST",
@@ -44,6 +45,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "e9b2e946-6120-4c35-a521-008184f0401a",
 					"name": "Update attachment",
 					"request": {
 						"method": "PATCH",
@@ -79,6 +81,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "f725788a-8f60-424e-832c-3767894b3f14",
 					"name": "Delete attachment",
 					"request": {
 						"method": "DELETE",
@@ -116,10 +119,11 @@
 			]
 		},
 		{
+			"_postman_id": "3714b62c-97e8-4444-a8d2-4c15b3b88aec",
 			"name": "Project Members",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "c6ea054c-2d90-4dc5-b616-083fdd06ac27",
 					"name": "Create project member with no payload",
 					"request": {
 						"method": "POST",
@@ -154,6 +158,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "867881c6-dcc3-4b7b-a282-e98fb4a4c3b9",
 					"name": "Create project copilot with invalid userId",
 					"request": {
 						"method": "POST",
@@ -188,6 +193,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "79cdf5fb-7f08-46aa-b074-1d129c589779",
 					"name": "Create project copilot with valid values",
 					"request": {
 						"method": "POST",
@@ -222,6 +228,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "8e5a1527-9e15-4c9f-9dc4-ae3fa709bdd0",
 					"name": "Create project member, if user already registered",
 					"request": {
 						"method": "POST",
@@ -256,6 +263,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "445f1f2f-1abf-4c14-83ea-146b5c887c1b",
 					"name": "Create project manager with valid values",
 					"request": {
 						"method": "POST",
@@ -290,6 +298,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "e5972439-1a26-46f7-9a83-5cdb3c80ddf7",
 					"name": "Create project customer with valid values",
 					"request": {
 						"method": "POST",
@@ -324,6 +333,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "cd8e2174-69ed-43b2-a5b3-89a3ef7d69f3",
 					"name": "Update project member",
 					"request": {
 						"method": "PATCH",
@@ -359,6 +369,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "60662887-3cc4-46bd-8d74-9e1c1c3317f1",
 					"name": "Update project member with isPrimary False",
 					"request": {
 						"method": "PATCH",
@@ -394,6 +405,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "7b876dde-fa20-42ea-a4cb-cf2c73f9f816",
 					"name": "Delete project member",
 					"request": {
 						"method": "DELETE",
@@ -431,10 +443,11 @@
 			]
 		},
 		{
+			"_postman_id": "d6b73a8a-efae-43a8-84ab-ec32f2aea18b",
 			"name": "Projects",
-			"description": "Requests for all things projects.",
 			"item": [
 				{
+					"_postman_id": "0ddd92d7-a7b9-48a8-8f3b-c3d4dfc4e8d5",
 					"name": "Create project without payload",
 					"request": {
 						"method": "POST",
@@ -467,6 +480,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "94e3d81a-591a-48b6-abfb-2c6d4ebeb248",
 					"name": "Create project without valid name",
 					"request": {
 						"method": "POST",
@@ -499,6 +513,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "6d28f75a-2c37-4b9f-bddf-76d5aafec1b5",
 					"name": "Create project with valid values",
 					"request": {
 						"method": "POST",
@@ -531,6 +546,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "36f545b9-67f9-40d6-aca1-fd7924d35242",
 					"name": "Get project by id",
 					"request": {
 						"method": "GET",
@@ -545,14 +561,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{api-url}}/v4/projects/7",
+							"raw": "{{api-url}}/v4/projects/1",
 							"host": [
 								"{{api-url}}"
 							],
 							"path": [
 								"v4",
 								"projects",
-								"7"
+								"1"
 							]
 						},
 						"description": "Get a project by id. project members and attachments should also be returned."
@@ -560,6 +576,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "24cc0d98-6564-4e2d-9ca8-c54044961b91",
 					"name": "Get project by id and request specific fields",
 					"request": {
 						"method": "GET",
@@ -595,6 +612,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "fd78e377-ffa3-4159-847a-00e263dd8fab",
 					"name": "List projects",
 					"request": {
 						"method": "GET",
@@ -623,6 +641,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "d868629d-7b8d-4af6-8221-6c55f9f86378",
 					"name": "List projects with limit and offset",
 					"request": {
 						"method": "GET",
@@ -661,6 +680,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "29535836-4be5-4799-aa9d-8362e46c734d",
 					"name": "List projects with filters applied",
 					"request": {
 						"method": "GET",
@@ -695,6 +715,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "efd70d70-3042-4474-8f1c-5e49548009d0",
 					"name": "List projects with sort applied",
 					"request": {
 						"method": "GET",
@@ -729,6 +750,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "3d81aaa7-d5cd-41cb-b747-ef2598a47284",
 					"name": "List projects and return specific fields",
 					"request": {
 						"method": "GET",
@@ -763,6 +785,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "454bbd38-2435-4d13-8962-3f5c19ba25a2",
 					"name": "DELETE project by id",
 					"request": {
 						"method": "DELETE",
@@ -792,6 +815,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "2ac4a235-cd25-4a38-8ec9-658835640da8",
 					"name": "Update project",
 					"request": {
 						"method": "PATCH",
@@ -825,6 +849,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "bfadc622-9665-4a8a-805b-9f68474731ad",
 					"name": "Update project 403",
 					"request": {
 						"method": "PATCH",
@@ -858,6 +883,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "86b61175-a196-4787-8d86-f85631854d63",
 					"name": "Update project 404",
 					"request": {
 						"method": "PATCH",
@@ -891,6 +917,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "2c157a97-5df9-468b-bf18-246b096ed6a4",
 					"name": "Update project status to in review",
 					"request": {
 						"method": "PATCH",
@@ -924,6 +951,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "1b905f89-0bf3-4220-899f-4cec30546bfc",
 					"name": "Update project status to reviewed",
 					"request": {
 						"method": "PATCH",
@@ -957,6 +985,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "17113d12-248e-4b32-ba8f-d1b336bbef50",
 					"name": "Update project status to paused",
 					"request": {
 						"method": "PATCH",
@@ -990,6 +1019,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "fb7ae9f4-ff1b-46f3-965a-a0a9f97d4483",
 					"name": "Update project status to cancelled with cancelReason",
 					"request": {
 						"method": "PATCH",
@@ -1023,6 +1053,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "51f76688-bfa7-4094-89c5-6ecdb08fc74b",
 					"name": "Update project status to cancelled",
 					"request": {
 						"method": "PATCH",
@@ -1056,6 +1087,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "f675f5b6-c58f-46e6-b0b3-675033e6bb97",
 					"name": "Update project status to completed",
 					"request": {
 						"method": "PATCH",
@@ -1089,6 +1121,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "04f8eb57-d0f4-43ca-956c-2346a214d1c5",
 					"name": "Move project out of cancel state.",
 					"request": {
 						"method": "PATCH",
@@ -1122,6 +1155,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "6f69a2ce-9e77-4e17-a36d-79c8320da3a6",
 					"name": "Move project out of cancel state 403",
 					"request": {
 						"method": "PATCH",
@@ -1155,6 +1189,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "85bcaabf-1e18-42ab-9c75-eccb21055770",
 					"name": "Update project details",
 					"request": {
 						"method": "PATCH",
@@ -1188,6 +1223,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "b9070a8e-e630-4cca-91da-c474199263ed",
 					"name": "Update project bookmarks",
 					"request": {
 						"method": "PATCH",
@@ -1220,13 +1256,15 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Requests for all things projects."
 		},
 		{
+			"_postman_id": "af25880c-5780-46e3-add9-0d8d445f0461",
 			"name": "bookmarks",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "e807c0ce-5fda-4456-acc7-cdb282dac11c",
 					"name": " Create project without bookmarks",
 					"request": {
 						"method": "POST",
@@ -1258,6 +1296,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "12d9d164-f27f-4d41-81cf-ef725d836ee4",
 					"name": " Create project with valid bookmarks",
 					"request": {
 						"method": "POST",
@@ -1289,6 +1328,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "5e441747-ad0d-4b5c-b09e-79150021ce6e",
 					"name": " Create project with invalid bookmarks",
 					"request": {
 						"method": "POST",
@@ -1320,6 +1360,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "243044ba-f35f-4563-adaa-a1c744fac1a7",
 					"name": "get  project",
 					"request": {
 						"method": "GET",
@@ -1352,6 +1393,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "8166e372-7afa-4c5e-91f4-47e7e83f3538",
 					"name": "Update project with bookmarks",
 					"request": {
 						"method": "PATCH",
@@ -1384,6 +1426,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "38913ab4-486d-44e4-b4e9-a78df1e01dc5",
 					"name": "Delete project all bookmarks null",
 					"request": {
 						"method": "PATCH",
@@ -1416,6 +1459,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "2e8a206c-0221-4b42-aa8d-043c7c4b3f7f",
 					"name": "Update  project with invalid bookmarks",
 					"request": {
 						"method": "PATCH",
@@ -1448,6 +1492,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "da2e659a-e7ac-44a8-b2d2-2bb45eeab97c",
 					"name": "get projects with admin token",
 					"request": {
 						"method": "GET",
@@ -1477,10 +1522,11 @@
 			]
 		},
 		{
+			"_postman_id": "974f6fdc-e8c2-4a33-8a2c-c874dc07939e",
 			"name": "issue1",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "bad21f51-1512-4e12-8560-1c373062802a",
 					"name": "get projects with copilot token",
 					"request": {
 						"method": "GET",
@@ -1510,10 +1556,11 @@
 			]
 		},
 		{
+			"_postman_id": "e0c73d5d-03c8-42fe-9509-3d7b29b87bfa",
 			"name": "issue10",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "f6706968-563b-4a20-b9d2-3a3f4dd50ed1",
 					"name": "wrong role",
 					"request": {
 						"method": "PATCH",
@@ -1548,6 +1595,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "1502f7db-dfa7-4de1-ba05-e667c2917df8",
 					"name": "editing project member roles & primary option",
 					"request": {
 						"method": "PATCH",
@@ -1584,10 +1632,11 @@
 			]
 		},
 		{
+			"_postman_id": "557b87a2-a851-4f66-8686-1baac0ecab26",
 			"name": "issue5",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "4d201e83-a1fb-4a97-be5f-d3bc53740b57",
 					"name": "launch a project by topcoder managers ",
 					"request": {
 						"method": "PATCH",
@@ -1620,6 +1669,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "2befafe5-1d8f-4f05-ba61-989b2b77b8e1",
 					"name": "launch a project by member",
 					"request": {
 						"method": "PATCH",
@@ -1652,6 +1702,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "0bbfd03a-38ab-482f-a0f8-26466da133d9",
 					"name": "launch a project by copilot",
 					"request": {
 						"method": "PATCH",
@@ -1686,10 +1737,11 @@
 			]
 		},
 		{
+			"_postman_id": "be256871-0d15-4cef-9567-64077f54bc6e",
 			"name": "issue8",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "437346b5-7561-49e1-8b29-4db4fa836049",
 					"name": "mock direct projects",
 					"request": {
 						"method": "GET",
@@ -1724,6 +1776,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "8986227a-02cd-4c6d-a607-11ec2d2baa05",
 					"name": " Create direct project when a new project is successfully created",
 					"request": {
 						"method": "POST",
@@ -1755,6 +1808,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "199baba1-b156-48bd-a579-ed640ee7b4cb",
 					"name": "Response error from direct project service",
 					"request": {
 						"method": "POST",
@@ -1788,6 +1842,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "71e7e0fd-a92b-4928-8b6a-9c69b3ce7c5e",
 					"name": " Add co-pilot when a co-pilot is added to a project",
 					"request": {
 						"method": "POST",
@@ -1821,6 +1876,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "63b7561f-deef-46ab-ac76-711f5967628d",
 					"name": "remove copilot from direct project when editing project member role",
 					"request": {
 						"method": "PATCH",
@@ -1855,6 +1911,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "dddb0b10-cbc0-4b34-a9f2-bdd23c6e5033",
 					"name": " Sync billing account id with direct",
 					"request": {
 						"method": "PATCH",
@@ -1887,6 +1944,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "a5a69ec2-d280-42c1-a4da-748fca806f87",
 					"name": "Delete co-pilot when a co-pilot is removed from  a project",
 					"request": {
 						"method": "DELETE",
@@ -1923,10 +1981,11 @@
 			]
 		},
 		{
+			"_postman_id": "e1f62e61-aa4b-42eb-be16-6ecf8cb3f004",
 			"name": "Project Phase",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "ecc1d4f3-070a-4ad8-a481-238fd623f338",
 					"name": "Create Phase",
 					"request": {
 						"method": "POST",
@@ -1960,6 +2019,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "0b564d0b-360d-4c76-9bd9-efb3736149da",
 					"name": "List Phase",
 					"request": {
 						"method": "GET",
@@ -1993,6 +2053,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "8e262f58-8799-4887-99a8-9fb8e6ecaece",
 					"name": "List Phase with fields",
 					"request": {
 						"method": "GET",
@@ -2032,6 +2093,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "0448df7e-d5e9-4988-b76d-5687aa3df0aa",
 					"name": "List Phase with sort",
 					"request": {
 						"method": "GET",
@@ -2071,6 +2133,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "b8ff11ff-0eb4-49f1-bb1a-faedd8aabf54",
 					"name": "Get Phase",
 					"request": {
 						"method": "GET",
@@ -2105,6 +2168,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "a347707a-a558-485d-81c8-4608f7da1bcc",
 					"name": "Update Phase",
 					"request": {
 						"method": "PATCH",
@@ -2139,6 +2203,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "c4a36111-fd3e-4ac2-a54d-4b5b5f8bed50",
 					"name": "Delete Phase",
 					"request": {
 						"method": "DELETE",
@@ -2175,10 +2240,11 @@
 			]
 		},
 		{
+			"_postman_id": "b6a79f2c-8020-4404-87d4-6527888f09a1",
 			"name": "Phase Products",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "d979d2f3-f3ff-49a7-b9ac-3acf3f6f106f",
 					"name": "Create Phase Product",
 					"request": {
 						"method": "POST",
@@ -2214,6 +2280,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "28d455c0-309b-40e9-9b7e-81ea45a21730",
 					"name": "List Phase Products",
 					"request": {
 						"method": "GET",
@@ -2245,6 +2312,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "6b9f6be2-4964-4581-83e6-7a45e1400471",
 					"name": "Get Phase Product",
 					"request": {
 						"method": "GET",
@@ -2277,6 +2345,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "dcace2aa-1c44-4903-933f-76c1d53d68cf",
 					"name": "Update Phase Product",
 					"request": {
 						"method": "PATCH",
@@ -2313,6 +2382,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "33296515-6295-43ab-a899-5ee460ce2c2d",
 					"name": "Delete Phase Product",
 					"request": {
 						"method": "DELETE",
@@ -2347,10 +2417,11 @@
 			]
 		},
 		{
+			"_postman_id": "ea0b4f42-0152-485a-890f-50e977da8f95",
 			"name": "Project Templates",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "7cf5cc8e-a843-4403-bacb-9b85107ae6b5",
 					"name": "Create project template",
 					"request": {
 						"method": "POST",
@@ -2366,7 +2437,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"param\":{\r\n    \"name\":\"new name\",\r\n    \"key\":\"new key\",\r\n    \"category\":\"new category\",\r\n    \"scope\":{\r\n      \"scope1\":\"scope 1\"\r\n    },\r\n    \"phases\":{\r\n      \"phase1\":\"phase 1\"\r\n    }\r\n  }\r\n}"
+							"raw": "{\r\n  \"param\":{\r\n    \"name\":\"new name\",\r\n    \"key\":\"new key\",\r\n    \"category\":\"new category\",\r\n    \"scope\":{\r\n      \"scope1\":\"scope 1\"\r\n    },\r\n    \"phases\":{\r\n      \"phase1\":\"phase 1\"\r\n    },\r\n    \"icon\": \"icon1\",\r\n    \"question\": \"question1\",\r\n    \"info\": \"info1\",\r\n    \"aliases\": [\"key-1\", \"key_1\"]\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "{{api-url}}/v4/projectTemplates",
@@ -2382,6 +2453,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "7aad9bcb-84d2-4696-acce-2a9ec350d929",
 					"name": "List project templates",
 					"request": {
 						"method": "GET",
@@ -2413,6 +2485,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "eb4f917a-8eb5-471f-9960-72de439010ba",
 					"name": "Get project template",
 					"request": {
 						"method": "GET",
@@ -2445,6 +2518,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "174b9259-1057-4c7d-b0e1-2e909f595e68",
 					"name": "Update project template",
 					"request": {
 						"method": "PATCH",
@@ -2477,6 +2551,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "d5ffac6c-93a3-4441-b7ac-a8a31e53d41c",
 					"name": "Delete project template",
 					"request": {
 						"method": "DELETE",
@@ -2511,10 +2586,11 @@
 			]
 		},
 		{
+			"_postman_id": "47a678aa-6c37-48b4-8b72-d76517cf4f2a",
 			"name": "Product Templates",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "c4a3654e-9411-4423-ad06-6778a7cce487",
 					"name": "Create product template",
 					"request": {
 						"method": "POST",
@@ -2530,7 +2606,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"param\":{\r\n    \"name\":\"new name\",\r\n    \"productKey\":\"new productKey\",\r\n    \"icon\":\"http://example.com/icon-new.ico\",\r\n    \"brief\": \"new brief\",\r\n    \"details\": \"new details\",\r\n    \"aliases\":{\r\n      \"alias1\":\"alias 1\"\r\n    },\r\n    \"template\":{\r\n      \"template1\":\"template 1\"\r\n    }\r\n  }\r\n}"
+							"raw": "{\r\n  \"param\":{\r\n    \"name\":\"new name\",\r\n    \"productKey\":\"new productKey\",\r\n    \"icon\":\"http://example.com/icon-new.ico\",\r\n    \"brief\": \"new brief\",\r\n    \"details\": \"new details\",\r\n    \"aliases\": [\"alias 1\"],\r\n    \"category\": \"category1\",\r\n    \"template\":{\r\n      \"template1\":\"template 1\"\r\n    }\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "{{api-url}}/v4/productTemplates",
@@ -2546,6 +2622,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "0342a3a9-25f8-4e30-85c2-0db1ffef2db3",
 					"name": "List product templates",
 					"request": {
 						"method": "GET",
@@ -2577,6 +2654,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "26776e94-027d-4a78-ba5f-df3827f7c359",
 					"name": "Get product template",
 					"request": {
 						"method": "GET",
@@ -2609,6 +2687,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "6eda6d37-5c5f-4487-8bdf-8b2ed4bb00b7",
 					"name": "Update product template",
 					"request": {
 						"method": "PATCH",
@@ -2641,6 +2720,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "6260376d-003e-404c-9a9c-da343cde60fc",
 					"name": "Delete product template",
 					"request": {
 						"method": "DELETE",
@@ -2675,10 +2755,202 @@
 			]
 		},
 		{
-			"name": "Project Type",
-			"description": null,
+			"_postman_id": "e9322629-1f84-4031-8cc6-f0c7e270d83c",
+			"name": "Product Category",
 			"item": [
 				{
+					"_postman_id": "787b84ff-9a0c-462d-b990-5d68ce108019",
+					"name": "Create product category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt-token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"param\":{\r\n      \"key\": \"category1\",\r\n      \"displayName\": \"displayName 1\",\r\n      \"icon\": \"icon 1\",\r\n      \"question\": \"question 1\",\r\n      \"info\": \"info 1\",\r\n      \"aliases\": [\"key-1\", \"key_1\"]\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{api-url}}/v4/productCategories",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"v4",
+								"productCategories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "e75d59c8-c528-4522-a634-8840ef23bc98",
+					"name": "List product category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt-token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"param\":{\r\n    \"name\":\"new name\",\r\n    \"key\":\"new key\",\r\n    \"category\":\"new category\",\r\n    \"scope\":{\r\n      \"scope1\":\"scope 1\"\r\n    },\r\n    \"phases\":{\r\n      \"phase1\":\"phase 1\"\r\n    }\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{api-url}}/v4/productCategories",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"v4",
+								"productCategories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "cf9e88d6-2d5a-46d4-8233-a154deed1c0f",
+					"name": "Get product category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt-token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"param\":{\r\n    \"name\":\"new name\",\r\n    \"key\":\"new key\",\r\n    \"category\":\"new category\",\r\n    \"scope\":{\r\n      \"scope1\":\"scope 1\"\r\n    },\r\n    \"phases\":{\r\n      \"phase1\":\"phase 1\"\r\n    }\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{api-url}}/v4/productCategories/key1",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"v4",
+								"productCategories",
+								"key1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "6562bd5b-505f-4028-8e0d-3012948a3901",
+					"name": "Update product category",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt-token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"param\":{\r\n    \"displayName\": \"displayName 2\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{api-url}}/v4/productCategories/key1",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"v4",
+								"productCategories",
+								"key1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "496eb6e7-741a-48bc-af81-aeba44e88342",
+					"name": "Delete product category",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt-token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api-url}}/v4/productCategories/key1",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"v4",
+								"productCategories",
+								"key1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ec4860a9-00d0-4591-9490-de641014b739",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "cb0e6d49-2e39-4893-93fd-036b0f149629",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"_postman_id": "399f492c-33b0-4798-983d-03a64e804e7d",
+			"name": "Project Type",
+			"item": [
+				{
+					"_postman_id": "1de7dfb8-871d-400c-a55f-e95c01e9b924",
 					"name": "Create project type",
 					"request": {
 						"method": "POST",
@@ -2694,7 +2966,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"param\":{\r\n        \"key\": \"new key\",\r\n        \"displayName\": \"new displayName\"\r\n  }\r\n}"
+							"raw": "{\n  \"param\": {\n    \"key\": \"generic\",\n    \"displayName\": \"displayName1\",\n    \"icon\": \"icon1\",\n    \"question\": \"question1\",\n    \"info\": \"info1\",\n    \"aliases\": [\"key-1\", \"key_1\"]\n  }\n}"
 						},
 						"url": {
 							"raw": "{{api-url}}/v4/projectTypes",
@@ -2710,6 +2982,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "84ecefc8-5455-4dc1-b5af-13e391a05587",
 					"name": "List project types",
 					"request": {
 						"method": "GET",
@@ -2741,6 +3014,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "22cd8584-753c-427a-91d9-54b351cf9b7f",
 					"name": "Get project type",
 					"request": {
 						"method": "GET",
@@ -2773,6 +3047,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "f2e1416c-6749-486f-a44a-04d19c69cd69",
 					"name": "Update project type",
 					"request": {
 						"method": "PATCH",
@@ -2805,6 +3080,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "8f319193-2eef-4c77-8a87-341963b3db4c",
 					"name": "Delete project type",
 					"request": {
 						"method": "DELETE",
@@ -2839,10 +3115,11 @@
 			]
 		},
 		{
+			"_postman_id": "4c3f9eef-149c-428c-8175-95d009bfeef0",
 			"name": "issue86 (create project with templateId)",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "9ee394ff-7520-43d6-89d2-039b0947855b",
 					"name": "Create project with templateId",
 					"request": {
 						"method": "POST",
@@ -2874,6 +3151,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "260f3f4d-ec92-41ee-a8c7-626c021aa9a7",
 					"name": "Create project with templateId (not existed)",
 					"request": {
 						"method": "POST",
@@ -2907,10 +3185,11 @@
 			]
 		},
 		{
+			"_postman_id": "bdf95652-a8f9-40bd-b787-82549ac88ad4",
 			"name": "Project upgrade",
-			"description": "Request to migrate projects.",
 			"item": [
 				{
+					"_postman_id": "c27fc81a-ac55-4551-8f13-fec1ac539dc2",
 					"name": "Migrate project",
 					"request": {
 						"method": "POST",
@@ -2944,6 +3223,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "715be1aa-0875-427a-90fd-1fba28b67c6f",
 					"name": "Migrate project (completed)",
 					"request": {
 						"method": "POST",
@@ -2977,6 +3257,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "7141b95e-5732-4def-a9c0-faa960123cf7",
 					"name": "Migrate project with phase name",
 					"request": {
 						"method": "POST",
@@ -3010,6 +3291,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "c3260ad6-4414-4702-a67a-f38bcd8be666",
 					"name": "Migrate project with phase name (completed)",
 					"request": {
 						"method": "POST",
@@ -3042,13 +3324,15 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Request to migrate projects."
 		},
 		{
+			"_postman_id": "042ac66a-48d3-43ee-a49e-60762f52325b",
 			"name": "Timeline",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "b7ab5061-575e-4a82-8c3c-5e5df4079282",
 					"name": "Create timeline",
 					"request": {
 						"method": "POST",
@@ -3064,7 +3348,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"param\":{\r\n    \"name\":\"new name\",\r\n    \"description\":\"new description\",\r\n    \"startDate\":\"2018-05-29T00:00:00.000Z\",\r\n    \"endDate\": \"2018-05-30T00:00:00.000Z\",\r\n    \"reference\": \"project\",\r\n    \"referenceId\": 1\r\n  }\r\n}"
+							"raw": "{\r\n  \"param\":{\r\n    \"name\":\"new name\",\r\n    \"description\":\"new description\",\r\n    \"startDate\":\"2018-05-29T00:00:00.000Z\",\r\n    \"endDate\": \"2018-05-30T00:00:00.000Z\",\r\n    \"reference\": \"phase\",\r\n    \"referenceId\": 1\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "{{api-url}}/v4/timelines",
@@ -3080,6 +3364,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "2a09652f-c2ea-438d-80ee-620f0060c46e",
 					"name": "Create timeline with invalid data",
 					"request": {
 						"method": "POST",
@@ -3111,6 +3396,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "f45bd801-1615-4ac3-ac6e-050daa3a77eb",
 					"name": "List timelines",
 					"request": {
 						"method": "GET",
@@ -3142,6 +3428,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "0ad70fbc-4a11-4ef2-b934-8863cfeefad7",
 					"name": "List timelines (filter by reference)",
 					"request": {
 						"method": "GET",
@@ -3179,6 +3466,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "638db252-10ec-4362-8936-5e18f120a247",
 					"name": "List timelines (filter by referenceId)",
 					"request": {
 						"method": "GET",
@@ -3216,6 +3504,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "45d7b10a-28d8-4e9a-be41-d0384c2b0554",
 					"name": "List timelines (filter by reference and referenceId)",
 					"request": {
 						"method": "GET",
@@ -3253,6 +3542,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "12f90b9a-2f6f-4d30-90b3-2c8094e99ec0",
 					"name": "Get timeline",
 					"request": {
 						"method": "GET",
@@ -3285,6 +3575,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "acec3cdf-a4b6-4c51-9c51-83594000fdf8",
 					"name": "Update timeline",
 					"request": {
 						"method": "PATCH",
@@ -3300,7 +3591,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"param\":{\r\n    \"name\": \"timeline 1-updated\",\r\n    \"description\": \"description-updated\",\r\n    \"startDate\": \"2018-05-01T00:00:00.000Z\",\r\n    \"endDate\": null,\r\n    \"reference\": \"project\",\r\n    \"referenceId\": 1\r\n  }\r\n}"
+							"raw": "{\r\n  \"param\":{\r\n    \"name\": \"timeline 1-updated\",\r\n    \"description\": \"description-updated\",\r\n    \"startDate\": \"2018-05-01T00:00:00.000Z\",\r\n    \"endDate\": \"2018-10-01T00:00:00.000Z\",\r\n    \"reference\": \"phase\",\r\n    \"referenceId\": 1\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "{{api-url}}/v4/timelines/1",
@@ -3317,6 +3608,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "190bf59c-a429-4b0e-835c-dd7887bdae4f",
 					"name": "Update timeline (startDate)",
 					"request": {
 						"method": "PATCH",
@@ -3349,6 +3641,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "a2d71fdd-6fad-409d-b451-db2470f1c110",
 					"name": "Update timeline (endDate)",
 					"request": {
 						"method": "PATCH",
@@ -3381,6 +3674,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "2e80eef5-1dff-470c-ace0-74c698902506",
 					"name": "Delete timeline",
 					"request": {
 						"method": "DELETE",
@@ -3415,10 +3709,11 @@
 			]
 		},
 		{
+			"_postman_id": "7477e1eb-0dba-4ecb-904e-5a5b881f13a8",
 			"name": "Milestone",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "771167f0-a3d3-4d76-817b-6d54aed36b51",
 					"name": "Create milestone",
 					"request": {
 						"method": "POST",
@@ -3434,7 +3729,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"param\":{\r\n    \"name\": \"milestone 3\",\r\n    \"description\": \"description 3\",\r\n    \"duration\": 4,\r\n    \"startDate\": \"2018-05-05T00:00:00.000Z\",\r\n    \"endDate\": \"2018-05-07T00:00:00.000Z\",\r\n    \"completionDate\": \"2018-05-08T00:00:00.000Z\",\r\n    \"status\": \"open\",\r\n    \"type\": \"type3\",\r\n    \"details\": {\r\n        \"detail1\": {\r\n            \"subDetail1C\": 3\r\n        },\r\n        \"detail2\": [\r\n            2,\r\n            3,\r\n            4\r\n        ]\r\n    },\r\n    \"order\": 1,\r\n    \"plannedText\": \"plannedText 3\",\r\n    \"activeText\": \"activeText 3\",\r\n    \"completedText\": \"completedText 3\",\r\n    \"blockedText\": \"blockedText 3\"\r\n  }\r\n}"
+							"raw": "{\r\n  \"param\":{\r\n    \"name\": \"milestone 3\",\r\n    \"description\": \"description 3\",\r\n    \"duration\": 4,\r\n    \"startDate\": \"2018-05-10T00:00:00.000Z\",\r\n    \"endDate\": \"2018-05-14T00:00:00.000Z\",\r\n    \"completionDate\": \"2018-05-16T00:00:00.000Z\",\r\n    \"status\": \"open\",\r\n    \"type\": \"type3\",\r\n    \"details\": {\r\n        \"detail1\": {\r\n            \"subDetail1C\": 3\r\n        },\r\n        \"detail2\": [\r\n            2,\r\n            3,\r\n            4\r\n        ]\r\n    },\r\n    \"order\": 1,\r\n    \"plannedText\": \"plannedText 3\",\r\n    \"activeText\": \"activeText 3\",\r\n    \"completedText\": \"completedText 3\",\r\n    \"blockedText\": \"blockedText 3\"\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "{{api-url}}/v4/timelines/1/milestones",
@@ -3452,6 +3747,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "b498fa82-aa75-401e-b917-cbeebf0748ed",
 					"name": "Create milestone with invalid data",
 					"request": {
 						"method": "POST",
@@ -3485,6 +3781,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "e0b3be71-7fbb-4e95-9acc-519c6fb318e5",
 					"name": "List milestones",
 					"request": {
 						"method": "GET",
@@ -3518,6 +3815,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "a54e03c5-40f3-4704-aa64-1d6a4eb00652",
 					"name": "List milestones (sort)",
 					"request": {
 						"method": "GET",
@@ -3557,6 +3855,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "c72f4f63-1a60-4683-a1b9-ecdd6cc0748f",
 					"name": "Get milestone",
 					"request": {
 						"method": "GET",
@@ -3591,6 +3890,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "0ad98af5-8ad1-44dc-b2df-ec7b1d561fce",
 					"name": "Update milestone",
 					"request": {
 						"method": "PATCH",
@@ -3625,6 +3925,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "7b5a5c2c-20e3-43f1-86c3-66b18e5ac37f",
 					"name": "Update milestone (order 1 => 2)",
 					"request": {
 						"method": "PATCH",
@@ -3659,6 +3960,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "5c711980-8f26-44ec-b01f-6a1aa003e9db",
 					"name": "Update milestone (order 2 => 1)",
 					"request": {
 						"method": "PATCH",
@@ -3693,6 +3995,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "c4ca558f-6776-4f62-bf61-f8233f43994a",
 					"name": "Update milestone (order 1 => 3)",
 					"request": {
 						"method": "PATCH",
@@ -3727,6 +4030,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "7989a0b7-2d12-4574-bfac-42d1fd82fa0e",
 					"name": "Update milestone (order 3 => 1)",
 					"request": {
 						"method": "PATCH",
@@ -3761,6 +4065,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "a9a1fbdd-b477-4b4e-824e-6b379d29654d",
 					"name": "Delete milestone",
 					"request": {
 						"method": "DELETE",
@@ -3797,10 +4102,11 @@
 			]
 		},
 		{
+			"_postman_id": "d0ee6851-6217-4b1c-aaf6-20e78d843575",
 			"name": "Milestone Template",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "3a7a217b-b97c-410f-a5da-32f0661c124c",
 					"name": "Create milestone template",
 					"request": {
 						"method": "POST",
@@ -3834,6 +4140,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "909a7fee-060e-4db8-a307-e08ee19a75c2",
 					"name": "Create milestone template with invalid data",
 					"request": {
 						"method": "POST",
@@ -3867,6 +4174,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "9258fd37-acdd-4afd-a6ae-b38e0a25fb5c",
 					"name": "List milestone templates",
 					"request": {
 						"method": "GET",
@@ -3900,6 +4208,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "5b627049-e3e3-48d2-98e4-ad7c6956115a",
 					"name": "List milestone templates (sort)",
 					"request": {
 						"method": "GET",
@@ -3939,6 +4248,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "c35383ea-d0c6-4c69-8b64-8d01e626cb9d",
 					"name": "Get milestone template",
 					"request": {
 						"method": "GET",
@@ -3973,6 +4283,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "e255eb36-10b7-4f74-9129-7a92d7e8befa",
 					"name": "Update milestone",
 					"request": {
 						"method": "PATCH",
@@ -4007,6 +4318,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "81325c80-e634-46e9-866a-f2df0623ad27",
 					"name": "Update milestone (order 1 => 2)",
 					"request": {
 						"method": "PATCH",
@@ -4041,6 +4353,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "ec77f318-3318-4937-8bfd-1ca1a3f6b4f9",
 					"name": "Update milestone (order 2 => 1)",
 					"request": {
 						"method": "PATCH",
@@ -4075,6 +4388,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "798dc489-332a-44e3-84bd-06bca496b790",
 					"name": "Update milestone (order 1 => 3)",
 					"request": {
 						"method": "PATCH",
@@ -4109,6 +4423,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "60b249b8-421a-4f08-826d-1c5cef36d279",
 					"name": "Update milestone (order 3 => 1)",
 					"request": {
 						"method": "PATCH",
@@ -4143,6 +4458,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "c0d29dd8-6017-49ba-ba10-781caba9a914",
 					"name": "Delete milestone",
 					"request": {
 						"method": "DELETE",

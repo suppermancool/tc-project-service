@@ -53,6 +53,11 @@ module.exports = () => {
   Authorizer.setPolicy('projectType.delete', projectAdmin);
   Authorizer.setPolicy('projectType.view', true); // anyone can view project types
 
+  Authorizer.setPolicy('productCategories.create', projectAdmin);
+  Authorizer.setPolicy('productCategories.edit', projectAdmin);
+  Authorizer.setPolicy('productCategories.delete', projectAdmin);
+  Authorizer.setPolicy('productCategories.view', true); // anyone can view product categories
+
   Authorizer.setPolicy('timeline.create', projectEdit);
   Authorizer.setPolicy('timeline.edit', projectEdit);
   Authorizer.setPolicy('timeline.delete', projectEdit);

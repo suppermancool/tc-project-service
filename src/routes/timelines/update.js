@@ -6,6 +6,8 @@ import _ from 'lodash';
 import Joi from 'joi';
 import { middleware as tcMiddleware } from 'tc-core-library-js';
 import util from '../../util';
+import validateTimelineIdParam from '../../middlewares/validateTimelineIdParam';
+import validateTimelineRequestBody from '../../middlewares/validateTimelineRequestBody';
 import { EVENT, TIMELINE_REFERENCES } from '../../constants';
 
 const permissions = tcMiddleware.permissions;
@@ -37,8 +39,8 @@ module.exports = [
   validate(schema),
   // Validate and get projectId from the timelineId param and request body,
   // and set to request params for checking by the permissions middleware
-  util.validateTimelineIdParam,
-  util.validateTimelineRequestBody,
+  validateTimelineIdParam,
+  validateTimelineRequestBody,
   permissions('timeline.edit'),
   (req, res, next) => {
     const entityToUpdate = _.assign(req.body.param, {

@@ -6,6 +6,7 @@ import Joi from 'joi';
 import _ from 'lodash';
 import { middleware as tcMiddleware } from 'tc-core-library-js';
 import util from '../../util';
+import validateTimelineIdParam from '../../middlewares/validateTimelineIdParam';
 import models from '../../models';
 
 const permissions = tcMiddleware.permissions;
@@ -21,7 +22,7 @@ module.exports = [
   validate(schema),
   // Validate and get projectId from the timelineId param, and set to request params for
   // checking by the permissions middleware
-  util.validateTimelineIdParam,
+  validateTimelineIdParam,
   permissions('milestone.view'),
   (req, res, next) => {
     const where = {

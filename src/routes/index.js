@@ -41,8 +41,15 @@ router.route('/v4/projectTypes')
 router.route('/v4/projectTypes/:key')
   .get(require('./projectTypes/get'));
 
+router.route('/v4/productCategories')
+  .get(require('./productCategories/list'));
+router.route('/v4/productCategories/:key')
+  .get(require('./productCategories/get'));
+
 router.all(
-  RegExp(`\\/${apiVersion}\\/(projects|projectTemplates|productTemplates|projectTypes|timelines)(?!\\/health).*`),
+  RegExp(
+    `\\/${apiVersion}\\/(projects|projectTemplates|productTemplates|` +
+    'projectTypes|productCategories|timelines)(?!\\/health).*'),
   jwtAuth());
 
 // Register all the routes
@@ -132,6 +139,13 @@ router.route('/v4/projectTypes')
 router.route('/v4/projectTypes/:key')
   .patch(require('./projectTypes/update'))
   .delete(require('./projectTypes/delete'));
+
+router.route('/v4/productCategories')
+  .post(require('./productCategories/create'));
+
+router.route('/v4/productCategories/:key')
+  .patch(require('./productCategories/update'))
+  .delete(require('./productCategories/delete'));
 
 router.route('/v4/timelines')
   .post(require('./timelines/create'))
