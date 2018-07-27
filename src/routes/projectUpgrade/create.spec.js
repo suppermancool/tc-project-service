@@ -21,6 +21,20 @@ describe('Project upgrade', () => {
       // mocks
       await testUtil.clearDb();
       const productId = 'application_development';
+
+      await models.ProjectType.create(
+        {
+          key: 'generic',
+          displayName: 'Generic',
+          icon: 'http://example.com/icon1.ico',
+          question: 'question 1',
+          info: 'info 1',
+          aliases: ['key-1', 'key_1'],
+          createdBy: 1,
+          updatedBy: 1,
+        });
+
+
       project = await models.Project.create({
         type: 'generic',
         billingAccountId: 1,
@@ -48,7 +62,7 @@ describe('Project upgrade', () => {
       projectTemplate = await models.ProjectTemplate.create({
         name: 'template 1',
         key: project.details.products[0],
-        category: 'category 1',
+        category: 'generic',
         icon: 'http://example.com/icon1.ico',
         question: 'question 1',
         info: 'info 1',
@@ -95,6 +109,7 @@ describe('Project upgrade', () => {
         icon: 'http://example.com/icon1.ico',
         brief: 'brief 1',
         details: 'details 1',
+        category: 'generic',
         aliases: {
           alias1: {
             subAlias1A: 1,

@@ -1,5 +1,5 @@
 /**
- * API to delete a product category 
+ * API to delete a product category
  */
 import validate from 'express-validation';
 import Joi from 'joi';

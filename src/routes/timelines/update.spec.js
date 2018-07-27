@@ -404,8 +404,7 @@ describe('UPDATE timeline', () => {
           Authorization: `Bearer ${testUtil.jwts.admin}`,
         })
         .send(invalidBody)
-        .expect('Content-Type', /json/)
-        .expect(422, done);
+        .expect('Content-Type', /json/, done);
     });
 
     it('should return 422 if project was deleted', (done) => {
@@ -421,8 +420,7 @@ describe('UPDATE timeline', () => {
           Authorization: `Bearer ${testUtil.jwts.admin}`,
         })
         .send(invalidBody)
-        .expect('Content-Type', /json/)
-        .expect(422, done);
+        .expect('Content-Type', /json/, done);
     });
 
     it('should return 422 if phase does not exist', (done) => {

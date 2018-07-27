@@ -32,12 +32,16 @@ module.exports = function defineProjectMember(sequelize, DataTypes) {
       { fields: ['role'] },
     ],
     classMethods: {
-      getProjectIdsForUser(userId) {
+      getProjectIdsForUser(userId, projectId) {
+        const where = {
+          deletedAt: { $eq: null },
+          userId,
+        };
+        if (projectId !== null && projectId !== undefined) {
+          where.projectId = { $eq: projectId };
+        }
         return this.findAll({
-          where: {
-            deletedAt: { $eq: null },
-            userId,
-          },
+          where: where || {},
           attributes: ['projectId'],
           raw: true,
         })

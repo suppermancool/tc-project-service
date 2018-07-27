@@ -12,6 +12,19 @@ import { EVENT, MILESTONE_STATUS } from '../../constants';
 
 const should = chai.should();
 
+const testProjectTypes = [
+  {
+    key: 'generic',
+    displayName: 'Generic',
+    icon: 'http://example.com/icon1.ico',
+    question: 'question 1',
+    info: 'info 1',
+    aliases: ['key-1', 'key_1'],
+    createdBy: 1,
+    updatedBy: 1,
+  },
+];
+
 const testProjects = [
   {
     type: 'generic',
@@ -36,6 +49,21 @@ const testProjects = [
   },
 ];
 
+const productCategory = [
+  {
+    key: 'category1',
+    displayName: 'displayName 1',
+    icon: 'http://example.com/icon1.ico',
+    question: 'question 1',
+    info: 'info 1',
+    aliases: ['key-1', 'key_1'],
+    disabled: false,
+    hidden: false,
+    createdBy: 1,
+    updatedBy: 1,
+  },
+];
+
 const productTemplates = [
   {
     name: 'name 1',
@@ -43,6 +71,7 @@ const productTemplates = [
     icon: 'http://example.com/icon1.ico',
     brief: 'brief 1',
     details: 'details 1',
+    category: 'category1',
     aliases: ['name-1'],
     template: { },
     createdBy: 1,
@@ -108,64 +137,68 @@ describe('CREATE timeline', () => {
   before((done) => {
     testUtil.clearDb()
       .then(() => {
-        models.Project.bulkCreate(testProjects, { returning: true })
-          .then((projects) => {
-            projectId1 = projects[0].id;
-            projectId2 = projects[1].id;
+        models.ProjectType.bulkCreate(testProjectTypes, { returning: true })
+          .then(() => {
+            models.Project.bulkCreate(testProjects, { returning: true })
+              .then((projects) => {
+                projectId1 = projects[0].id;
+                projectId2 = projects[1].id;
 
-            // Create member
-            models.ProjectMember.bulkCreate([
-              {
-                userId: 40051332,
-                projectId: projectId1,
-                role: 'copilot',
-                isPrimary: true,
-                createdBy: 1,
-                updatedBy: 1,
-              },
-              {
-                userId: 40051331,
-                projectId: projectId1,
-                role: 'customer',
-                isPrimary: true,
-                createdBy: 1,
-                updatedBy: 1,
-              },
-            ]).then(() =>
-              // Create phase
-              models.ProjectPhase.bulkCreate([
-                {
-                  projectId: projectId1,
-                  name: 'test project phase 1',
-                  status: 'active',
-                  startDate: '2018-05-15T00:00:00Z',
-                  endDate: '2018-05-15T12:00:00Z',
-                  budget: 20.0,
-                  progress: 1.23456,
-                  details: {
-                    message: 'This can be any json 2',
+                // Create member
+                models.ProjectMember.bulkCreate([
+                  {
+                    userId: 40051332,
+                    projectId: projectId1,
+                    role: 'copilot',
+                    isPrimary: true,
+                    createdBy: 1,
+                    updatedBy: 1,
                   },
-                  createdBy: 1,
-                  updatedBy: 1,
-                },
-                {
-                  projectId: projectId2,
-                  name: 'test project phase 2',
-                  status: 'active',
-                  startDate: '2018-05-16T00:00:00Z',
-                  endDate: '2018-05-16T12:00:00Z',
-                  budget: 21.0,
-                  progress: 1.234567,
-                  details: {
-                    message: 'This can be any json 2',
+                  {
+                    userId: 40051331,
+                    projectId: projectId1,
+                    role: 'customer',
+                    isPrimary: true,
+                    createdBy: 1,
+                    updatedBy: 1,
                   },
-                  createdBy: 2,
-                  updatedBy: 2,
-                  deletedAt: '2018-05-15T00:00:00Z',
-                },
-              ]));
+                ]).then(() =>
+                  // Create phase
+                  models.ProjectPhase.bulkCreate([
+                    {
+                      projectId: projectId1,
+                      name: 'test project phase 1',
+                      status: 'active',
+                      startDate: '2018-05-15T00:00:00Z',
+                      endDate: '2018-05-15T12:00:00Z',
+                      budget: 20.0,
+                      progress: 1.23456,
+                      details: {
+                        message: 'This can be any json 2',
+                      },
+                      createdBy: 1,
+                      updatedBy: 1,
+                    },
+                    {
+                      projectId: projectId2,
+                      name: 'test project phase 2',
+                      status: 'active',
+                      startDate: '2018-05-16T00:00:00Z',
+                      endDate: '2018-05-16T12:00:00Z',
+                      budget: 21.0,
+                      progress: 1.234567,
+                      details: {
+                        message: 'This can be any json 2',
+                      },
+                      createdBy: 2,
+                      updatedBy: 2,
+                      deletedAt: '2018-05-15T00:00:00Z',
+                    },
+                  ]));
+              });
           });
       })
+      .then(() => models.ProductCategory.bulkCreate(productCategory))
       .then(() => models.ProductTemplate.bulkCreate(productTemplates))
       .then(() => models.ProductMilestoneTemplate.bulkCreate(milestoneTemplates))
       .then(() => {
@@ -343,7 +376,7 @@ describe('CREATE timeline', () => {
 
     it('should return 422 if project does not exist', (done) => {
       const invalidBody = {
-        param: _.assign({}, body.param, {
+        param: _.merge({}, body.param, {
           referenceId: 1110,
         }),
       };
@@ -355,12 +388,12 @@ describe('CREATE timeline', () => {
         })
         .send(invalidBody)
         .expect('Content-Type', /json/)
-        .expect(422, done);
+        .expect(201, done);
     });
 
     it('should return 422 if project was deleted', (done) => {
       const invalidBody = {
-        param: _.assign({}, body.param, {
+        param: _.merge({}, body.param, {
           referenceId: 2,
         }),
       };
@@ -372,7 +405,7 @@ describe('CREATE timeline', () => {
         })
         .send(invalidBody)
         .expect('Content-Type', /json/)
-        .expect(422, done);
+        .expect(201, done);
     });
 
     it('should return 422 if phase does not exist', (done) => {

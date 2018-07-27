@@ -35,21 +35,53 @@ const schema = {
   },
 };
 
+/**
+ * Validates the project type being one from the allowed ones.
+ *
+ * @param {String} type key of the project type to be used
+ * @returns {Promise} promise which resolves to a project type if it is valid, rejects otherwise with 422 error
+ */
+function validateProjectType(type) {
+  return models.ProjectType.findOne({ where: { key: type } })
+  .then((projectType) => {
+    if (!projectType) {
+      // Not found
+      const apiErr = new Error(`Project template category not found for key ${type}`);
+      apiErr.status = 422;
+      return Promise.reject(apiErr);
+    }
+
+    return Promise.resolve(projectType);
+  });
+}
+
 module.exports = [
   validate(schema),
   permissions('projectTemplate.create'),
   (req, res, next) => {
-    const entity = _.assign(req.body.param, {
-      createdBy: req.authUser.userId,
-      updatedBy: req.authUser.userId,
-    });
+    const projectTemplate = req.body.param;
 
-    return models.ProjectTemplate.create(entity)
-      .then((createdEntity) => {
-        // Omit deletedAt, deletedBy
-        res.status(201).json(util.wrapResponse(
-          req.id, _.omit(createdEntity.toJSON(), 'deletedAt', 'deletedBy'), 1, 201));
+    models.sequelize.transaction(() => {
+      req.log.debug('Create Project Template - Starting transaction');
+      // Validate the project template category
+      return validateProjectType(projectTemplate.category)
+      // Create the project template
+      .then((projectTemplateCategory) => {
+        req.log.debug(`Project template category ${projectTemplateCategory.key} validated successfully`);
+
+        const entity = _.assign(projectTemplate, {
+          createdBy: req.authUser.userId,
+          updatedBy: req.authUser.userId,
+        });
+        return models.ProjectTemplate.create(entity)
+          .then((createdEntity) => {
+            // Omit deletedAt, deletedBy
+            res.status(201).json(util.wrapResponse(
+              req.id, _.omit(createdEntity.toJSON(), 'deletedAt', 'deletedBy'), 1, 201));
+          })
+          .catch(next);
       })
       .catch(next);
+    });
   },
 ];

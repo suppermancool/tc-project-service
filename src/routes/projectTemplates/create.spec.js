@@ -7,9 +7,28 @@ import request from 'supertest';
 import server from '../../app';
 import testUtil from '../../tests/util';
 
+import models from '../../models';
+
 const should = chai.should();
 
 describe('CREATE project template', () => {
+  beforeEach(() => testUtil.clearDb()
+    .then(() => models.ProjectType.create({
+      key: 'category 1',
+      displayName: 'displayName 1',
+      icon: 'http://example.com/icon1.ico',
+      question: 'question 1',
+      info: 'info 1',
+      aliases: ['key-1', 'key_1'],
+      disabled: false,
+      hidden: false,
+      createdBy: 1,
+      updatedBy: 1,
+    })).then(() => Promise.resolve()),
+  );
+  after(testUtil.clearDb);
+
+
   describe('POST /projectTemplates', () => {
     const body = {
       param: {

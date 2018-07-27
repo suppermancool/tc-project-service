@@ -61,15 +61,24 @@ module.exports = function defineProject(sequelize, DataTypes) {
        * b. any project that is in 'reviewed' state AND does not yet have a co-pilot assigned
        * @param userId the id of user
        */
-      getProjectIdsForCopilot(userId) {
+      getProjectIdsForCopilot(userId, projectId) {
+        let matchId = [];
+        if (projectId !== null && projectId !== undefined) {
+          matchId = ['"Project".id=?', projectId];
+        }
         return this.findAll({
           where: {
-            $or: [
-              ['EXISTS(SELECT * FROM "project_members" WHERE "deletedAt" ' +
-                'IS NULL AND "projectId" = "Project".id AND "userId" = ? )', userId],
-              ['"Project".status=? AND NOT EXISTS(SELECT * FROM "project_members" WHERE ' +
-                  ' "deletedAt" IS NULL AND "projectId" = "Project".id AND "role" = ? )',
-                PROJECT_STATUS.REVIEWED, PROJECT_MEMBER_ROLE.COPILOT],
+            $and: [
+              {
+                $or: [
+                  ['EXISTS(SELECT * FROM "project_members" WHERE "deletedAt" ' +
+                  'IS NULL AND "projectId" = "Project".id AND "userId" = ? )', userId],
+                  ['"Project".status=? AND NOT EXISTS(SELECT * FROM "project_members" WHERE ' +
+                    ' "deletedAt" IS NULL AND "projectId" = "Project".id AND "role" = ? )',
+                    PROJECT_STATUS.REVIEWED, PROJECT_MEMBER_ROLE.COPILOT],
+                ],
+              },
+              matchId,
             ],
           },
           attributes: ['id'],

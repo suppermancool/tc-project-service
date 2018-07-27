@@ -35,9 +35,9 @@ const schema = {
 };
 
 /**
- * Validates the product category type being one from the allowed ones.
+ * Validates the product category being one from the allowed ones.
  *
- * @param {String} key of the product category to be used
+ * @param {String} category of the product to be used
  * @returns {Promise} promise which resolves to a product category if it is valid, rejects otherwise with 422 error
  */
 function validateProductCategory(category) {

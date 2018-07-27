@@ -83,8 +83,8 @@ module.exports = [
 
     // Get project ids for copilot or member
     const getProjectIds = util.hasRole(req, USER_ROLE.COPILOT) ?
-      models.Project.getProjectIdsForCopilot(req.authUser.userId) :
-      models.ProjectMember.getProjectIdsForUser(req.authUser.userId);
+      models.Project.getProjectIdsForCopilot(req.authUser.userId, filter.referenceId) :
+      models.ProjectMember.getProjectIdsForUser(req.authUser.userId, filter.referenceId);
 
     return getProjectIds
       .then((accessibleProjectIds) => {

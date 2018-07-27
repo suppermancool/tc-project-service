@@ -11,12 +11,26 @@ import testUtil from '../../tests/util';
 const should = chai.should();
 
 describe('GET product template', () => {
+  const productCategory = {
+    key: 'category1',
+    displayName: 'displayName 1',
+    icon: 'http://example.com/icon1.ico',
+    question: 'question 1',
+    info: 'info 1',
+    aliases: ['key-1', 'key_1'],
+    disabled: false,
+    hidden: false,
+    createdBy: 1,
+    updatedBy: 1,
+  };
+
   const template = {
     name: 'name 1',
     productKey: 'productKey 1',
     icon: 'http://example.com/icon1.ico',
     brief: 'brief 1',
     details: 'details 1',
+    category: 'category1',
     aliases: {
       alias1: {
         subAlias1A: 1,
@@ -47,11 +61,13 @@ describe('GET product template', () => {
   let templateId;
 
   beforeEach(() => testUtil.clearDb()
+  .then(() => models.ProductCategory.create(productCategory))
     .then(() => models.ProductTemplate.create(template))
-    .then((createdTemplate) => {
-      templateId = createdTemplate.id;
-      return Promise.resolve();
-    }),
+      .then(() => models.ProductTemplate.create(template))
+      .then((createdTemplate) => {
+        templateId = createdTemplate.id;
+        return Promise.resolve();
+      }),
   );
   after(testUtil.clearDb);
 

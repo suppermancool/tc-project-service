@@ -10,14 +10,28 @@ import testUtil from '../../tests/util';
 
 describe('DELETE product template', () => {
   let templateId;
+  const productCategory = {
+    key: 'category1',
+    displayName: 'displayName 1',
+    icon: 'http://example.com/icon1.ico',
+    question: 'question 1',
+    info: 'info 1',
+    aliases: ['key-1', 'key_1'],
+    disabled: false,
+    hidden: false,
+    createdBy: 1,
+    updatedBy: 1,
+  };
 
   beforeEach(() => testUtil.clearDb()
+    .then(() => models.ProductCategory.create(productCategory))
     .then(() => models.ProductTemplate.create({
       name: 'name 1',
       productKey: 'productKey 1',
       icon: 'http://example.com/icon1.ico',
       brief: 'brief 1',
       details: 'details 1',
+      category: 'category1',
       aliases: ['product key 1', 'product_key_1'],
       template: {
         template1: {

@@ -11,7 +11,7 @@ import testUtil from '../../tests/util';
 const should = chai.should();
 
 describe('LIST product category', () => {
-  const types = [
+  const categories = [
     {
       key: 'key1',
       displayName: 'displayName 1',
@@ -39,8 +39,8 @@ describe('LIST product category', () => {
   ];
 
   beforeEach(() => testUtil.clearDb()
-    .then(() => models.ProductCategory.create(types[0]))
-    .then(() => models.ProductCategory.create(types[1]))
+    .then(() => models.ProductCategory.create(categories[0]))
+    .then(() => models.ProductCategory.create(categories[1]))
     .then(() => Promise.resolve()),
   );
   after(testUtil.clearDb);
@@ -54,21 +54,21 @@ describe('LIST product category', () => {
         })
         .expect(200)
         .end((err, res) => {
-          const type = types[0];
+          const category = categories[0];
 
           const resJson = res.body.result.content;
           resJson.should.have.length(2);
-          resJson[0].key.should.be.eql(type.key);
-          resJson[0].displayName.should.be.eql(type.displayName);
-          resJson[0].icon.should.be.eql(type.icon);
-          resJson[0].info.should.be.eql(type.info);
-          resJson[0].question.should.be.eql(type.question);
-          resJson[0].aliases.should.be.eql(type.aliases);
-          resJson[0].createdBy.should.be.eql(type.createdBy);
-          resJson[0].disabled.should.be.eql(type.disabled);
-          resJson[0].hidden.should.be.eql(type.hidden);
+          resJson[0].key.should.be.eql(category.key);
+          resJson[0].displayName.should.be.eql(category.displayName);
+          resJson[0].icon.should.be.eql(category.icon);
+          resJson[0].info.should.be.eql(category.info);
+          resJson[0].question.should.be.eql(category.question);
+          resJson[0].aliases.should.be.eql(category.aliases);
+          resJson[0].createdBy.should.be.eql(category.createdBy);
+          resJson[0].disabled.should.be.eql(category.disabled);
+          resJson[0].hidden.should.be.eql(category.hidden);
           should.exist(resJson[0].createdAt);
-          resJson[0].updatedBy.should.be.eql(type.updatedBy);
+          resJson[0].updatedBy.should.be.eql(category.updatedBy);
           should.exist(resJson[0].updatedAt);
           should.not.exist(resJson[0].deletedBy);
           should.not.exist(resJson[0].deletedAt);

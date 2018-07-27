@@ -30,6 +30,18 @@ describe('Project create', () => {
           updatedBy: 1,
         },
       ]))
+      .then(() => models.ProductCategory.create({
+        key: 'category1',
+        displayName: 'displayName 1',
+        icon: 'http://example.com/icon1.ico',
+        question: 'question 1',
+        info: 'info 1',
+        aliases: ['key-1', 'key_1'],
+        disabled: false,
+        hidden: false,
+        createdBy: 1,
+        updatedBy: 1,
+      }))
       .then(() => models.ProductTemplate.bulkCreate([
         {
           id: 21,
@@ -42,6 +54,7 @@ describe('Project create', () => {
           template: {},
           createdBy: 3,
           updatedBy: 4,
+          category: 'category1',
         },
         {
           id: 22,
@@ -54,6 +67,7 @@ describe('Project create', () => {
           template: {},
           createdBy: 3,
           updatedBy: 4,
+          category: 'category1',
         },
         {
           id: 23,
@@ -66,6 +80,7 @@ describe('Project create', () => {
           template: {},
           createdBy: 3,
           updatedBy: 4,
+          category: 'category1',
         },
       ]))
       .then(() => models.ProjectTemplate.bulkCreate([
@@ -73,7 +88,7 @@ describe('Project create', () => {
           id: 1,
           name: 'template 1',
           key: 'key 1',
-          category: 'category 1',
+          category: 'generic',
           icon: 'http://example.com/icon1.ico',
           question: 'question 1',
           info: 'info 1',
@@ -103,7 +118,7 @@ describe('Project create', () => {
           id: 3,
           name: 'template 3',
           key: 'key 3',
-          category: 'category 3',
+          category: 'generic',
           icon: 'http://example.com/icon3.ico',
           question: 'question 3',
           info: 'info 3',

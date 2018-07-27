@@ -14,7 +14,7 @@ import testUtil from '../../tests/util';
 const validateProductTemplates = (count, resJson, expectedTemplates) => {
   resJson.should.have.length(count);
   resJson.forEach((pt, idx) => {
-    pt.should.have.all.keys('id', 'name', 'productKey', 'icon', 'brief', 'details', 'aliases',
+    pt.should.have.all.keys('id', 'name', 'productKey', 'icon', 'brief', 'details', 'category', 'aliases',
     'template', 'disabled', 'hidden', 'createdBy', 'createdAt', 'updatedBy', 'updatedAt');
     pt.should.not.have.all.keys('deletedAt', 'deletedBy');
     pt.name.should.be.eql(expectedTemplates[idx].name);
@@ -22,6 +22,7 @@ const validateProductTemplates = (count, resJson, expectedTemplates) => {
     pt.icon.should.be.eql(expectedTemplates[idx].icon);
     pt.brief.should.be.eql(expectedTemplates[idx].brief);
     pt.details.should.be.eql(expectedTemplates[idx].details);
+    pt.category.should.be.eql(expectedTemplates[idx].category);
     pt.aliases.should.be.eql(expectedTemplates[idx].aliases);
     pt.template.should.be.eql(expectedTemplates[idx].template);
     pt.createdBy.should.be.eql(expectedTemplates[idx].createdBy);
@@ -32,6 +33,19 @@ const validateProductTemplates = (count, resJson, expectedTemplates) => {
 };
 
 describe('LIST product templates', () => {
+  const productCategory = {
+    key: 'category1',
+    displayName: 'displayName 1',
+    icon: 'http://example.com/icon1.ico',
+    question: 'question 1',
+    info: 'info 1',
+    aliases: ['key-1', 'key_1'],
+    disabled: false,
+    hidden: false,
+    createdBy: 1,
+    updatedBy: 1,
+  };
+
   const templates = [
     {
       name: 'name 1',
@@ -39,6 +53,7 @@ describe('LIST product templates', () => {
       icon: 'http://example.com/icon1.ico',
       brief: 'brief 1',
       details: 'details 1',
+      category: 'category1',
       aliases: {
         alias1: {
           subAlias1A: 1,
@@ -73,6 +88,7 @@ describe('LIST product templates', () => {
       icon: 'http://example.com/icon2.ico',
       brief: 'brief 2',
       details: 'details 2',
+      category: 'category1',
       aliases: {},
       template: {},
       createdBy: 3,
@@ -83,11 +99,13 @@ describe('LIST product templates', () => {
   let templateId;
 
   beforeEach(() => testUtil.clearDb()
+    .then(() => models.ProductCategory.create(productCategory))
     .then(() => models.ProductTemplate.create(templates[0]))
     .then((createdTemplate) => {
       templateId = createdTemplate.id;
       return models.ProductTemplate.create(templates[1]);
-    }).then(() => Promise.resolve()),
+    })
+    .then(() => Promise.resolve()),
   );
   after(testUtil.clearDb);
 

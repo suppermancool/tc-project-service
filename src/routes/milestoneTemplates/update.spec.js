@@ -10,6 +10,21 @@ import testUtil from '../../tests/util';
 
 const should = chai.should();
 
+const productCategory = [
+  {
+    key: 'category1',
+    displayName: 'displayName 1',
+    icon: 'http://example.com/icon1.ico',
+    question: 'question 1',
+    info: 'info 1',
+    aliases: ['key-1', 'key_1'],
+    disabled: false,
+    hidden: false,
+    createdBy: 1,
+    updatedBy: 1,
+  },
+];
+
 const productTemplates = [
   {
     name: 'name 1',
@@ -17,6 +32,7 @@ const productTemplates = [
     icon: 'http://example.com/icon1.ico',
     brief: 'brief 1',
     details: 'details 1',
+    category: 'category1',
     aliases: {
       alias1: {
         subAlias1A: 1,
@@ -46,6 +62,7 @@ const productTemplates = [
   {
     name: 'template 2',
     productKey: 'productKey 2',
+    category: 'category1',
     icon: 'http://example.com/icon2.ico',
     brief: 'brief 2',
     details: 'details 2',
@@ -118,6 +135,7 @@ const milestoneTemplates = [
 
 describe('UPDATE milestone template', () => {
   beforeEach(() => testUtil.clearDb()
+    .then(() => models.ProductCategory.bulkCreate(productCategory))
     .then(() => models.ProductTemplate.bulkCreate(productTemplates))
     .then(() => models.ProductMilestoneTemplate.bulkCreate(milestoneTemplates)),
   );

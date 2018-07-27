@@ -17,7 +17,7 @@ import urlencode from 'urlencode';
 import elasticsearch from 'elasticsearch';
 import Promise from 'bluebird';
 import AWS from 'aws-sdk';
-import { ADMIN_ROLES, TOKEN_SCOPES, TIMELINE_REFERENCES } from './constants';
+import { ADMIN_ROLES, TOKEN_SCOPES } from './constants';
 
 const exec = require('child_process').exec;
 const models = require('./models').default;
